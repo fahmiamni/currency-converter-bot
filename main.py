@@ -2,6 +2,9 @@
 
 import requests
 import os
+from dotenv import load_dotenv
+
+load_dotenv()  # Load environment variables from .env file
 
 # Your API key will be stored in an environment variable for security
 API_KEY = os.getenv("EXCHANGERATE_API_KEY")
@@ -25,7 +28,7 @@ def get_exchange_rate(base_currency, target_currency):
         if data.get("result") == "success":
             return data.get("conversion_rate")
         else:
-            print(f"Error from API: {data.get(\"error-type\")}")
+            print(f"Error from API: {data.get('error-type')}")
             return None
             
     except requests.exceptions.RequestException as e:
