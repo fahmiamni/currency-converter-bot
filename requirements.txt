@@ -1,2 +1,1 @@
 requests
-kivy[full]
